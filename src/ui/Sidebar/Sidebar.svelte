@@ -2,7 +2,6 @@
   import Folders from "./Folders.svelte";
   import Search from "./Search.svelte";
   import IconDelete from '../icons/IconDelete.svelte'
-  import { onMount } from 'svelte';
   export let lazyFolders: boolean
 
   let componentEl: HTMLElement;
