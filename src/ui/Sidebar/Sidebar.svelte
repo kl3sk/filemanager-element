@@ -2,6 +2,7 @@
   import Folders from "./Folders.svelte";
   import Search from "./Search.svelte";
   import IconDelete from '../icons/IconDelete.svelte'
+  import IconUpload from "../icons/IconUpload.svelte"
   export let lazyFolders: boolean
 
   let componentEl: HTMLElement;
@@ -19,8 +20,10 @@
 
 <template>
   <aside class="fm-sidebar" bind:this={componentEl}>
-    <div class="icon-close" on:click={handleClose}>
-        <IconDelete />
+    <div class="icons">
+      <span class="close" on:click={handleClose}>
+        <IconDelete on:click={handleClose}/>
+      </span>
     </div>
     <Search />
     <Folders folders={[null]} lazyLoad={lazyFolders} />
@@ -41,16 +44,15 @@
     margin: 1.5em 0;
   }
 
-  .icon-close
+  .icons
   {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .close
+  {
     color: var(--fm-color);
-    transition: .3s color;
-    background-color: transparent;
     border: none;
     cursor: pointer;
   }
