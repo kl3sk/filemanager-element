@@ -41,10 +41,19 @@ FileManager.register("fn-file-manager", {
     });
   },
 });
+FileManager.register('upload-file-manager', {
+  uploadButton: {
+    visible: true,
+    multiple: true,
+    accept: "application/pdf",
+  }
+});
 
 const apiBasedManager = document.querySelector("file-manager")!;
 const fnBasedManager = document.querySelector("fn-file-manager")!;
-[apiBasedManager, fnBasedManager].forEach((el) =>
+const uploadFileManager = document.querySelector("upload-file-manager")!;
+
+[apiBasedManager, fnBasedManager, uploadFileManager].forEach((el) =>
   el.addEventListener("close", (e) => {
     (e.currentTarget as HTMLElement).setAttribute("hidden", "");
   })
@@ -60,6 +69,10 @@ document.querySelector("#api")!.addEventListener("click", () => {
 
 document.querySelector("#function")!.addEventListener("click", () => {
   fnBasedManager.removeAttribute("hidden");
+});
+
+document.querySelector("#upload")!.addEventListener("click", () => {
+  uploadFileManager.removeAttribute("hidden");
 });
 
 if (window.location.hash === "#function") {

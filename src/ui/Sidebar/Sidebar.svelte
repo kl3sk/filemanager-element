@@ -15,8 +15,8 @@
         // Crée dynamiquement un input de type file
         const input = document.createElement('input') as HTMLInputElement
         input.type = 'file'
-        input.multiple = true
-        input.accept = '*/*' // Tu peux filtrer, ex: 'image/*', 'application/pdf', etc.
+        input.multiple = options.uploadButton.multiple// Permet de sélectionner plusieurs fichiers si true
+        input.accept = options.uploadButton.accept // Définit les types de fichiers acceptés
 
 
         // Ajoute un gestionnaire d'événement pour le fichier sélectionné
@@ -40,9 +40,11 @@
 <template>
   <aside class="fm-sidebar">
     <div class="icons">
+      {#if options.uploadButton.visible}
       <span class="upload" on:click={handleUpload}>
         <IconUpload/>
       </span>
+      {/if}
     </div>
     <Search/>
     <Folders folders={[null]} lazyLoad={lazyFolders}/>

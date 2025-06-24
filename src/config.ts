@@ -5,6 +5,11 @@ const config = {
   endpoint: "",
   readOnly: false,
   httpHeaders: {},
+  uploadButton: {
+    visible: false,
+    multiple: false,
+    accept: "image/*,video/*,audio/*,application/pdf",
+  },
   getFolders(parent?: Folder | null): Promise<Folder[]> {
     return fetchApi(this.endpoint, "/folders", {
       query: {
