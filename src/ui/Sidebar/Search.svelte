@@ -43,7 +43,7 @@
   .search button {
     position: absolute;
     right: 0;
-    top: 0;
+    top: 30px;
     bottom: 0;
     padding: 0 16px;
     color: var(--fm-inputBorder);
